@@ -1,0 +1,39 @@
+.view-details-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+img{
+    width: 30%;
+    border-radius: 15px;
+}
+
+.view-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 10%;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2{
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+p{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
