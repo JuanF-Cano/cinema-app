@@ -14,3 +14,7 @@
 .filter-content {
     display: flex;
 }
+
+.box-categories{
+    width: 8px;
+}
