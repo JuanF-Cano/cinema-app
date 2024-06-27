@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { useState } from "react";
 import { Context } from '../../App'
+import './SearchBar.css'
 
   const SearchBar =()=>{
 
