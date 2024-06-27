@@ -12,11 +12,12 @@ import { Context } from '../../App'
   }
 
     return(
-        <div className="SearchBar-container-Input">
+        <div className="SearchBar-Container-Input">
         <input 
         onChange={handleChange}
         value={search} 
-        placeholder="Search by"></input>
+        placeholder="Search by"
+        className="SearchBar"></input>
       </div>
     )
 }
