@@ -1,0 +1,14 @@
+.SearchBar-Container-Input{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.SearchBar {
+    border-color: #000000; /* cambiar color del borde cuando está enfocado */
+    outline: none;         /* quitar el borde por defecto */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* sombra al enfocar */
+    width: 50%;
+    font-size: 20px;
+    background-color: #000000;
+}
