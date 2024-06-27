@@ -1,15 +1,27 @@
-import { useContext } from 'react';//Se importa useContext para 
+import { useContext, useEffect, useState } from 'react';//Se importa useContext para 
 import { Context } from '../../App'//Se importa el contexto
 import './CategoryBar.css';//Se importa el css
 import {getMovieGenres} from '../../controllers/APIcalls'
 
-const gato = ['hola', 'como'];//array de simulacion, luego se cambia con el nombre de al categoria
+const gato =['hola','chao'];//array de simulacion, luego se cambia con el nombre de al categoria
 
 function CategoryBar() {
 
+  const [genres, setGenres] =useState('')
   const [selectCategories, setSelectCategories] = useContext(Context);//se ejecutan selectCategories y setSelectCategories dentro del useContext
   //lo que permite modificarlos de forma global dentro del contexto
-
+useEffect(()=>{
+    const fetchGenres = async ()=>{
+        try{
+         const genre = await getMovieGenres()
+         setGenres(genre)
+         console.log(genres)
+        }catch{
+          console.log(error)
+        }
+      }
+      fetchGenres()
+    },[])
   const selectFilter = e => {//Funcion flecha para que filtre y modifique el array de selectCategories
     if (e.target.checked) {//En caso de que presione el checkbox
       e.target.checked=true;//Activa el checked
@@ -17,7 +29,6 @@ function CategoryBar() {
       setSelectCategories([...selectCategories, e.target.value]);//Agrega el valor del muevo elemento checkeado
     } else {//Si no se toca el checkbox
       e.target.checked=false;//Mantiene el checked desactivado
-
       setSelectCategories(() =>//quita el valor del checked del array de  selectCategories
         selectCategories.filter(deleteCategory => deleteCategory !== (e.target.value)))
     }//Filter recibe una funcion de condicion, y devuelve un array que cumple con la condicion de adentro
