@@ -1,35 +1,36 @@
-import { useContext} from 'react';
-const gato = ['hola', 'como'];
-import { Context } from '../../App'
+import { useContext } from 'react';//Se importa useContext para 
+import { Context } from '../../App'//Se importa el contexto
+const gato = ['hola', 'como'];//array de simulacion, luego se cambia con el nombre de al categoria
 
 function CategoryBar() {
 
-  const [selectCategories, setSelectCategories] = useContext(Context);
+  const [selectCategories, setSelectCategories] = useContext(Context);//se ejecutan selectCategories y setSelectCategories dentro del useContext
+  //lo que permite modificarlos de forma global dentro del contexto
 
-  const selectFilter = e => {
-    if (e.target.checked) {
-      e.target.checked=true;  
+  const selectFilter = e => {//Funcion flecha para que filtre y modifique el array de selectCategories
+    if (e.target.checked) {//En caso de que presione el checkbox
+      e.target.checked=true;//Activa el checked
 
-      // Si se marca el checkbox, agrega el género al estado  [... se]
-      setSelectCategories([...selectCategories, e.target.value]);
-    } else {
-      e.target.checked=false; 
-      // Si se desmarca el checkbox, elimina el género del estado
+      setSelectCategories([...selectCategories, e.target.value]);//Agrega el valor del muevo elemento checkeado
+    } else {//Si no se toca el checkbox
+      e.target.checked=false;//Mantiene el checked desactivado
 
-      setSelectCategories(() =>
+      setSelectCategories(() =>//quita el valor del checked del array de  selectCategories
         selectCategories.filter(deleteCategory => deleteCategory !== (e.target.value)))
-    }
+    }//Filter recibe una funcion de condicion, y devuelve un array que cumple con la condicion de adentro
   };
 
   return (
     <section>
       <h3>Filters</h3>
       <div>
-        {gato.map((filter, index) => (
-          <div key={index}>
+        {gato.map((filter, index) => (//imprime cada elemento
+          <div key={index}>{/*separamos cada checkbox con divs unicos con la key para cada categoria*/}
               <input  type="checkbox" id={`filterCategory${filter}`} onChange={selectFilter} value={filter} />
-              <label htmlFor={`filterCategory${filter}`}>
-                {filter}
+              {/* el onchange, se usa para que por cada cambio de estado de los checkbox, se llame a la funcion de filtrado 
+              con el valor de el nombre del filtro*/}
+              <label htmlFor={`filterCategory${filter}`}>{/* labels unicos para checkbox unicos */}
+                {filter}{/* es el nombre de las categorias */}
               </label>
           </div>
         ))}
@@ -39,4 +40,4 @@ function CategoryBar() {
 
 }
 
-export default CategoryBar;
+export default CategoryBar;//se exporta el componente
