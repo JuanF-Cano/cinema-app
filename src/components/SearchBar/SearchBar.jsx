@@ -13,13 +13,10 @@ const [search,setSearch]= useState("");
     setSearch (e.target.value)
     console.log("Busqueda: "+e.target.value)
   }
-  useEffect(()=>{
-    petiGet();
-  },[])
 //Esto es la barra de busqueda, al cambio del estado se llama handleChange
 const SearchBar =()=>{
     return(
-        <div className="container-Input">
+        <div className="SearchBar- container-Input">
         <input 
         onChange={handleChange}
         value={search} 
