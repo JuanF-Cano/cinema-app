@@ -40,7 +40,7 @@ useEffect(()=>{
       <div>
         {gato.map((filter, index) => (//imprime cada elemento
           <div className='filter-content' key={index}>{/*separamos cada checkbox con divs unicos con la key para cada categoria*/}
-              <input  type="checkbox" id={`filter-category${filter}`} onChange={selectFilter} value={filter} />
+              <input  type="checkbox" id={`filter-category${filter}`} onChange={selectFilter} value={filter} className='box-categories'/>
               {/* el onchange, se usa para que por cada cambio de estado de los checkbox, se llame a la funcion de filtrado 
               con el valor de el nombre del filtro*/}
               <label htmlFor={`filter-category${filter}`}>{/* labels unicos para checkbox unicos */}
