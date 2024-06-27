@@ -3,8 +3,6 @@ import { Context } from '../../App'; // Importación del contexto desde la aplic
 import './CategoryBar.css'; // Estilos CSS para el componente CategoryBar
 import { getMovieGenres } from '../../controllers/APIcalls'; // Función para obtener géneros de películas desde API
 
-const gato = ['hola', 'chao']; // Array de simulación inicial, se reemplazará con los géneros de películas obtenidos
-
 function CategoryBar() {
   const [genres, setGenres] = useState([]); // Estado para almacenar los géneros de películas
   const [selectCategories, setSelectCategories] = useContext(Context); // Estado para almacenar las categorías seleccionadas desde el contexto global
