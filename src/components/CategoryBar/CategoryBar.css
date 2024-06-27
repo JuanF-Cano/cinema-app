@@ -1,0 +1,16 @@
+.container-filter-category {
+    background-color: black;
+    color: white;
+    padding: 1px 15px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 20%;
+}
+
+.categories{
+    font-size: 1rem;
+}
+
+.filter-content {
+    display: flex;
+}
