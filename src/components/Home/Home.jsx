@@ -7,12 +7,14 @@ import NavBarM1 from "../NavBarM1/NavBarM1";
 
 const Home = () => {
     const [movies, setMovies] = useState([]);
+    const [tvShows, setTvShows] = useState([]);
+    const [people, setPeople] = useState([]);
 
     useEffect(() => {
         const fetchMovies = async () => {
             try {
                 const moviesData = await getPopularMovies();
-                setMovies(moviesData);
+                setMovies(moviesData); // Assuming API response has a 'results' array
             } catch (error) {
                 console.error("Error fetching movies:", error);
             }
@@ -21,6 +23,34 @@ const Home = () => {
         fetchMovies();
     }, []);
 
+    useEffect(() => {
+        const fetchTvShows = async () => {
+            try {
+                const tvShowsData = await getPopularTVShows();
+                setTvShows(tvShowsData); // Assuming API response has a 'results' array
+            } catch (error) {
+                console.error("Error fetching movies:", error);
+            }
+        };
+
+        fetchTvShows();
+    }, []);
+    
+
+    useEffect(() => {
+        const fetchPeople = async () => {
+            try {
+                const peopleData = await getPopularPeople();
+                setPeople(peopleData); // Assuming API response has a 'results' array
+            } catch (error) {
+                console.error("Error fetching movies:", error);
+            }
+        };
+
+        fetchPeople();
+    }, []);
+    
+
     return (
         <div className="home-principal-seccion">
             <div className="container-nav"><NavBarM1 /></div>
@@ -28,14 +58,9 @@ const Home = () => {
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
                 <Carousel movies={movies} />
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={movies} />
+                <Carousel movies={tvShows} />
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={movies} />
-            </div>
-
-            <div className="home-principal-seccion__cards">
-                <div className="home-principal-seccion__titulo">Películas</div>
-                <MovieGrid movies={movies} />
+                <Carousel movies={people} />
             </div>
         </div>
     );
