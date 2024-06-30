@@ -1,0 +1,74 @@
+/* Estilos para el contenedor principal */
+.home-principal-seccion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.home-principal-seccion__titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.home-principal-seccion__carrusel,
+.home-principal-seccion__cards {
+    margin-bottom: 40px;
+}
+
+/* Estilos para el carrusel */
+.carrusel-container {
+    overflow-x: auto;
+    display: flex;
+}
+
+.carrusel {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 16px;
+}
+
+.carrusel-item {
+    cursor: pointer;
+    flex: 0 0 auto;
+    width: 200px;
+    text-align: center;
+}
+
+.carrusel-item__img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.carrusel-item__titulo {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+/* Estilos para las cards de películas */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    cursor: pointer;
+    text-align: center;
+}
+
+.card__img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card__titulo {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.card__fecha,
+.card__calificacion {
+    margin-top: 4px;
+    color: #666;
+}
