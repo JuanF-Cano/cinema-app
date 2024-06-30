@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import searchAPI from "./apiManage";
-import { useEffect } from "react";
 import "./SearchBarM1.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Result({ result, type }) {
+function Result({ result, type, onClick }) {
   return (
-    <Link to={`/details/${type}/${result.id}`} className="result-link">
-      <>
-        <img
-          src={`https://image.tmdb.org/t/p/w200${
-            result.poster_path || result.profile_path
-          }`}
-          alt={result.title || result.name}
-        />
-        <h4>{result.title || result.name}</h4>
-      </>
+    <Link
+      to={`/details/${type}/${result.id}`}
+      className="result-link"
+      onClick={onClick}
+    >
+      <img
+        src={`https://image.tmdb.org/t/p/w200${
+          result.poster_path || result.profile_path
+        }`}
+        alt={result.title || result.name}
+      />
+      <h4>{result.title || result.name}</h4>
     </Link>
   );
 }
@@ -33,8 +34,7 @@ function SelectionTypeSearch({ setTypeSearch }) {
   );
 }
 
-// SearchInput recibe una funcion setSearch que se encarga de actualizar el estado de search
-function SearchInput({ search, setSearch }) {
+function SearchInput({ search, setSearch, handleKeyPress }) {
   return (
     <input
       type="text"
@@ -42,21 +42,17 @@ function SearchInput({ search, setSearch }) {
       value={search}
       placeholder="Buscar..."
       onChange={(evento) => setSearch(evento.target.value)}
+      onKeyPress={handleKeyPress}
     />
   );
 }
 
 function SearchBarM1() {
-  //Estado para guardar la busqueda
   const [search, setSearch] = useState("");
-
-  //Estado para guardar el tipo de busqueda
   const [typeSearch, setTypeSearch] = useState("movie");
-
-  //Estado para guardar los resultados de la busqueda
   const [results, setResults] = useState([]);
+  const navigate = useNavigate();
 
-  //useEffect para hacer la busqueda
   useEffect(() => {
     const fetchResults = async () => {
       if (search.length >= 1) {
@@ -71,18 +67,43 @@ function SearchBarM1() {
     fetchResults();
   }, [search, typeSearch]);
 
+  const handleSearch = () => {
+    navigate(`/search/${typeSearch}/${search}`);
+    setSearch("");
+  };
+
+  const handleKeyPress = (evento) => {
+    if (evento.key === "Enter") {
+      handleSearch();
+      setSearch("");
+    }
+  };
+
+  const handleResultClick = () => {
+    setResults([]);
+  };
+
   return (
     <div className="search-container">
       <div className="search-bar-container">
-        <SelectionTypeSearch
-          setTypeSearch={setTypeSearch}
-        ></SelectionTypeSearch>
-        <SearchInput search={search} setSearch={setSearch}></SearchInput>
-        <button className="search-button">Buscar</button>
+        <SelectionTypeSearch setTypeSearch={setTypeSearch} />
+        <SearchInput
+          search={search}
+          setSearch={setSearch}
+          handleKeyPress={handleKeyPress}
+        />
+        <button className="search-button" onClick={handleSearch}>
+          Buscar
+        </button>
       </div>
       <div className="results-container">
         {results.map((result) => (
-          <Result key={result.id} result={result} type={typeSearch}></Result>
+          <Result
+            key={result.id}
+            result={result}
+            type={typeSearch}
+            onClick={handleResultClick}
+          />
         ))}
       </div>
     </div>
