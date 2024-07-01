@@ -45,17 +45,9 @@ function SearchBar() {
     setSearch(id);
     primary++;
   }
-
+  
   const handleSearch = () => {
     navigate(`/search/${type}/${search}`);
-    setSearch("");
-  };
-
-  const handleKeyPress = (evento) => {
-    if (evento.key === "Enter") {
-      handleSearch();
-      setSearch("");
-    }
   };
 
   useEffect(() => {
@@ -82,7 +74,6 @@ function SearchBar() {
         <SearchInput
           search={search}
           setSearch={setSearch}
-          handleKeyPress={handleKeyPress}
         />
         <button className="search-button" onClick={handleSearch}>
           Buscar
