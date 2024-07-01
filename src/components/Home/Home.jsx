@@ -3,6 +3,7 @@ import { getPopularMovies, getPopularPeople, getPopularTVShows } from "../../con
 import './Home.css';
 import Carousel from "./Carousel";
 import NavBarM1 from "../NavBarM1/NavBarM1";
+import SearchComponent from "../SearchComponent";
 
 const Home = () => {
     const [movies, setMovies] = useState([]);
@@ -80,7 +81,7 @@ const Home = () => {
 
     return (
         <div className="home-principal-seccion">
-            <div className="container-nav"><NavBarM1 /></div>
+            <div className="container-nav"><SearchComponent /></div>
             <div className="home-principal-seccion__carrusel">
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
                 <Carousel movies={movies} type="movie"/>

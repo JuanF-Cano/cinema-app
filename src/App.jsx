@@ -3,10 +3,13 @@ import HomePage from "./pages/HomePage";
 import ItemInfoPage from "./pages/ItemInfoPage";
 import SearchPage from "./pages/SearchPage";
 import PeoplePage from "./pages/PeoplePage";
+import Details from './pages/Filter';
+import { StateContext } from './context/stateContext';
 
 
 function App() {
   return (
+    <StateContext>
     <Router>
       <Routes>
       {/*
@@ -15,10 +18,11 @@ function App() {
         <Route path="/people" element={<PeoplePage />} /> */}
         <Route path="/" element={<HomePage />} />
         <Route path="/search/:type/:id" element={<SearchPage />} />
-        <Route path="/details/:type/:id" element={<ItemInfoPage />} />
+        <Route path="/:type/:id" element={<ItemInfoPage />} />
    {/*      <Route path="/details/people/:id" element={<PeoplePage />} /> */}
-      </Routes>
+      </Routes>      
     </Router>
+    </StateContext>
   );
 }
 

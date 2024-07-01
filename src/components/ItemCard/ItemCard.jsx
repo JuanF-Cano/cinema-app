@@ -5,7 +5,7 @@ import "./ItemCard.css";
 function ItemCard({movie, type}) {
   console.log(type)
   return (
-      <Link to={`/details/${type}/${movie.id}`}
+      <Link to={`/${type}/${movie.id}`}
       className="item-card">
       <img
         className="item-card-image"
