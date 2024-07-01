@@ -27,9 +27,9 @@ function SelectionTypeSearch({ setTypeSearch }) {
       className="select-button"
       onChange={(evento) => setTypeSearch(evento.target.value)}
     >
-      <option value="movie">Peliculas</option>
-      <option value="tv">Series</option>
-      <option value="person">Personas</option>
+      <option className="select-option" value="movie">Peliculas</option>
+      <option className="select-option" value="tv">Series</option>
+      <option className="select-option" value="person">Personas</option>
     </select>
   );
 }

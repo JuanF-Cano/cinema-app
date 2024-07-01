@@ -1,3 +1,9 @@
+.container-nav {
+    background-color: #333;
+    width: 100%;
+    border-radius: 8px;
+}
+
 .home-principal-seccion {
     display: flex;
     flex-wrap: wrap;
