@@ -18,7 +18,7 @@ function SimilarMovie(movieId){
         };
         
         fetchMovies();
-    }, []);
+    }, [movieId]);
 
     return(
         <div>

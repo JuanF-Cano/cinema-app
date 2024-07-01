@@ -29,7 +29,7 @@ function ItemInfo(props) {
           description: response.overview,
         });
       }
-      if (type == "tvshow") {
+      if (type == "tv") {
         response = await getTVShowDetails(props.id);
         console.log(response);
         let imgPATH = response.poster_path;

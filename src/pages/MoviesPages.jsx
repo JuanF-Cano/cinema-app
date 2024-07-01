@@ -14,7 +14,6 @@ function MoviesPage() {
 
   useEffect(() => {
     const fetchResults = async () => {
-        let categories= selectCategories.join("&")
       if (search.length >= 1) {
         const params = { query: search };
         const endpoint = `search/${categories}`;
