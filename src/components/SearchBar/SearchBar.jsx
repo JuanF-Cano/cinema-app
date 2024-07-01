@@ -36,9 +36,10 @@ function SearchInput({ search, setSearch, handleKeyPress }) {
 }
 
 let primary = 0;//Si se inicia la pagina por primer vez
-function SearchBar() {
+function SearchBar({ value }) {
   const [ search, setSearch ]= useContext(Context);
   const [results, setResults] = useState([]);
+  const [mainResults, setMainResults] = useState([]);
   const navigate = useNavigate();
   const { type, id } = useParams();
   if ((primary==0)) {//Si es la primera vez que ejecuta la pagina...
@@ -53,20 +54,38 @@ function SearchBar() {
   useEffect(() => {
     const fetchResults = async () => {
       if (search.length >= 1) {
-        const params = { query: search };
+        const params = { query: search};
         const endpoint = `search/${type}`;
         const data = await searchAPI(endpoint, params);
-        setResults(data.slice(0, 2));
+        console.log(value.key)
+        setResults(data.slice(0, 5));
+        MainFilter(results.id, value.key);
+        
       } else {
         setResults([]);
       }
     };
     fetchResults();
-  });
+  },[value]);
 
   const handleResultClick = () => {
     setResults([]);
   };
+
+  const MainFilter = ( movies, categoties ) => {
+    movies.id.map((movie) => {
+        let fil = true;
+        categoties.map((category) => {
+          if((movie==category) && fil){
+            fil = true;
+         } else fil = false;
+        })
+        if(fil){
+          setMainResults(movie)
+        }
+      })
+  }
+  
 
   return (
     <div className="search-container">
@@ -80,11 +99,12 @@ function SearchBar() {
         </button>
       </div>
       <div className="results-container">
-        {results.map((result) => (
+        {mainResults.map((result) => (
           <Result
             key={result.id}
             result={result}
             type={type}
+            genre={value.id}
             onClick={handleResultClick}
           />
         ))}

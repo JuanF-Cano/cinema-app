@@ -12,8 +12,8 @@ function CategoryBar() {
     const fetchGenres = async () => {
       try {
         const genresResponse = await getMovieGenres(); // Obtener respuesta de géneros desde la API
-        const genresArray = genresResponse.map(genre => genre.name); // Convertir objeto de géneros en un array de valores
-        setGenres(genresArray); // Actualizar estado de géneros con el array resultante
+        setGenres(genresResponse); // Actualizar estado de géneros con el array de objetos resultante
+        console.log(genres)
       } catch (err) {
         console.log(err); // Manejar errores si ocurren al obtener géneros
       }
@@ -23,11 +23,18 @@ function CategoryBar() {
 
   // Función para manejar la selección de categorías mediante checkboxes
   const selectFilter = (e) => {
-    const selectedCategory = e.target.value; // Obtención del valor de la categoría seleccionada
+    const selectedCategory = genres.find(genre => genre.id === parseInt(e.target.value)); // Obtener el objeto de género seleccionado
     if (e.target.checked) { // Verificación si el checkbox está marcado
-      setSelectCategories([...selectCategories, selectedCategory]); // Agregar la categoría seleccionada al estado de categorías seleccionadas
+      setSelectCategories((prevCategories) => {
+        const updatedCategories = [...prevCategories, selectedCategory.id];
+        return updatedCategories;
+      });
     } else {
-      setSelectCategories(selectCategories.filter(category => category !== selectedCategory)); // Filtrar y quitar la categoría seleccionada del estado de categorías
+      setSelectCategories((prevCategories) => {
+        const updatedCategories = prevCategories.filter(category => category !== selectedCategory.id);
+        console.log(updatedCategories);
+        return updatedCategories;
+      });
     }
   };
 
@@ -36,16 +43,16 @@ function CategoryBar() {
     <section className='container-filter-category'>
       <h3>Filters</h3> {/* Título de la sección de filtros */}
       <div>
-        {genres.map((filter, index) => ( // Mapeo de los géneros de películas para mostrar cada categoría como un checkbox
-          <div className='filter-content' key={index}>{/* Contenedor para cada checkbox */}
+        {genres.map((filter) => ( // Mapeo de los géneros de películas para mostrar cada categoría como un checkbox
+          <div className='filter-content' key={filter.id}>{/* Contenedor para cada checkbox */}
             <input
               type="checkbox"
-              id={`filter-category${filter}`}
+              id={`filter-category${filter.id}`}
               onChange={selectFilter} // Manejador de cambio para la selección de categorías
-              value={filter} // Valor del checkbox es el nombre del género de película
+              value={filter.id} // Valor del checkbox es el id del género de película
             />
-            <label htmlFor={`filter-category${filter}`}>{/* Etiqueta para el checkbox */}
-              <p className='categories'>{filter}</p>{/* Nombre del género de película como categoría */}
+            <label htmlFor={`filter-category${filter.id}`}>{/* Etiqueta para el checkbox */}
+              <p className='categories'>{filter.name}</p>{/* Nombre del género de película como categoría */}
             </label>
           </div>
         ))}

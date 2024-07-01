@@ -11,11 +11,12 @@ function SearchPage() {
   return (
     <div className='Search'>
       <Context.Provider value={[search,setSearch]}>
-        <SearchBar/>
+        <SearchBar value={selectCategories}/>
       </Context.Provider>
       <Context.Provider value={[selectCategories, setSelectCategories]}>
         <CategoryBar/>
       </Context.Provider>
+      {console.log(selectCategories)}
     </div>
   );
 }
