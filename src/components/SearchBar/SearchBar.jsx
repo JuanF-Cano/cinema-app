@@ -57,16 +57,15 @@ function SearchBar({ value }) {
         const params = { query: search};
         const endpoint = `search/${type}`;
         const data = await searchAPI(endpoint, params);
-        console.log(value.key)
         setResults(data.slice(0, 5));
-        MainFilter(results.id, value.key);
+        //MainFilter(results.id, value.key);
         
       } else {
         setResults([]);
       }
     };
     fetchResults();
-  },[value]);
+  },[search]);
 
   const handleResultClick = () => {
     setResults([]);
@@ -99,7 +98,7 @@ function SearchBar({ value }) {
         </button>
       </div>
       <div className="results-container">
-        {mainResults.map((result) => (
+        {results.map((result) => (
           <Result
             key={result.id}
             result={result}

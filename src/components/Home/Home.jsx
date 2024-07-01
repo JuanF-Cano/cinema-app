@@ -83,16 +83,12 @@ const Home = () => {
         <div className="home-principal-seccion">
             <div className="container-nav"><SearchComponent /></div>
             <div className="home-principal-seccion__carrusel">
-                <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={movies} type="movie"/>
-                <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={tvShows} type="tv"/>
-                <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={people} type="person"/>
-            </div>
-
-            <div className="home-principal-seccion__cards">
                 <div className="home-principal-seccion__titulo">Películas</div>
+                <Carousel movies={movies} type="movie"/>
+                <div className="home-principal-seccion__titulo">Series</div>
+                <Carousel movies={tvShows} type="tv"/>
+                <div className="home-principal-seccion__titulo">Celebridades</div>
+                <Carousel movies={people} type="person"/>
             </div>
         </div>
     );
