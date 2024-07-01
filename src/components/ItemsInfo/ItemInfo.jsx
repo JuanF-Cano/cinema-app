@@ -9,7 +9,7 @@ import {
 function ItemInfo(props) {
   let type = props.type;
   type = type.toLowerCase();
-  console.log(type);
+  console.log("tipo", type, "id", props.id);
   const [infoDetails, setInfoDetails] = useState({});
 
   useEffect(() => {
@@ -28,9 +28,9 @@ function ItemInfo(props) {
           description: response.overview,
         });
       }
-      if (type == "tvshow") {
+      if (type == "tv") {
         response = await getTVShowDetails(props.id);
-        console.log(response);
+        console.log("Respuesta", response);
         let imgPATH = response.poster_path;
         let imgURL = `https://image.tmdb.org/t/p/w500/${imgPATH}`;
         setInfoDetails({
