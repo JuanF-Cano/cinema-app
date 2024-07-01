@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStateContext } from '../context/stateContext';
 import axios from 'axios';
+import "./SearchBar/SearchBar.css";
 
 const constant_genres = [{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]
 
@@ -125,31 +126,16 @@ function ResultsPage() {
     const newData = data.slice(index, index + 12);
     return (
         <div className="contmax">
-            {/* Selection para seleccionar el genero */}
-            Seleccione el genero:
-            <select className='Selector' onClick={handleSelect}>
-                {constant_genres.map((element) => (
-                    <option key={element.id} value={element.id} >
-                        {element.name}
-                    </option>
-                ))}
-            </select>
-            <span>Generos seleccionados: </span>
-            {/* // imprimir genero seleccionado, no por numero si no por nombre */}
             <div className='contenedor-pelis'>
+            <h1>Relacionados</h1>
                 {genre.split(',').map((element) => {
                     if (element === '') return;
-                    return (
-                        <p key={element}>
-                            {constant_genres.find((genre) => genre.id === parseInt(element)).name}
-                        </p>
-                    );
                 })}
             </div>
         <div className="Container">
-            <div className="Movie">
+            <div className="Movies">
                 {newData.map((element) => (
-                    <div key={element.id} className="">
+                    <div className="Movie" key={element.id}>
                         <img className="movie-images"
                             src={`https://image.tmdb.org/t/p/w300${element.poster_path}` + `https://image.tmdb.org/t/p/w300${element.profile_path}` }
                             alt={element.title}
@@ -159,14 +145,14 @@ function ResultsPage() {
                               <h3>{element.title}</h3>
                               <p>{element.release_date}</p>
                           </div>
-                        <p className="title">{element.title}</p>
                     </div>
                 ))}
             </div>
-        </div>   
-        <button className="previousPage" onClick={previousPage}>previous</button>   
-        <button className="nextPage" onClick={nextPage}>next</button>
-        
+        </div> 
+        <div className='container-controll-button'>
+          <button className="controll-page-button" onClick={previousPage}>Prev</button>   
+          <button className="controll-page-button" onClick={nextPage}>Next</button>
+        </div>
         </div>
 
     );
