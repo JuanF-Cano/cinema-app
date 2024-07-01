@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Context } from '../../pages/SearchPage'
 import './SearchBar.css'
 import { useParams, Link, useNavigate } from "react-router-dom"

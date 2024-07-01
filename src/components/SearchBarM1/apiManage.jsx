@@ -1,7 +1,4 @@
-import React from "react";
 import axios from "axios";
-
-
 
 const ACCES_TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzY2JlYjkxMDYxOWFmODcwZWE0MzAxNmMxYTcyZTMxMSIsIm5iZiI6MTcxOTU3MTU5OS45MDg1MTksInN1YiI6IjY2NzcyYThjZjRhNTI5ZjBkOWVkMzAzZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.2NDxX0pDLnqHvoDK2o8WL27YiyAe6U8EHAiNVB30mBA";
