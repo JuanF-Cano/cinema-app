@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchSearchResults } from '../service/TmdbApi';
 import { useStateContext } from '../context/stateContext';
-
+import './SearchBar/SearchBar.css';
 const SearchComponent = () => {
   const navigate = useNavigate();
   const { type, search } = useParams(); // Obtenemos los parámetros de la URL
@@ -62,9 +62,9 @@ const SearchComponent = () => {
   };
 
   return (
-    <div className="search-container">
-      <form onSubmit={handleSearch}>
-        <div>
+    <div>
+      <form  className="search-bar-container" onSubmit={handleSearch}>
+        <div className='select-button-container'>
           <select className='select-button' value={searchType} onChange={(e) => setSearchType(e.target.value)}>
             <option value="movie">Películas</option>
             <option value="tv">TV Shows</option>
@@ -72,14 +72,14 @@ const SearchComponent = () => {
           </select>
         </div>
         <div className='input-button-container'>
-          <input className='input-search'
+          <input className='search-input'
             required
             type="text" 
             value={query} 
             onChange={(e) => (setQuery(e.target.value), setShowDropdown(true))} 
             placeholder="Buscar..."
           />
-          <button className='submit-button' type="submit">Buscar</button>
+          <button className='search-button' type="submit">Buscar</button>
         </div>
       </form>
 
