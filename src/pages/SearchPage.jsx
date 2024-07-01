@@ -1,9 +1,9 @@
 import React from "react";
 import { useStateContext } from "../context/stateContext";
-import SearchBar from '../components/SearchBar/SearchBar';
-import CategoryBar from '../components/CategoryBar/CategoryBar';
 import ResultsPage from "../components/ResultsPage";
-import SearchComponent from "../components/SearchComponent";
+import NavBarM1 from "../components/NavBarM1/NavBarM1";
+import '../components/SearchBar/SearchBar.css';
+
 export const Context = React.createContext()
   
 function SearchPage() {
@@ -13,7 +13,7 @@ function SearchPage() {
 
   return (
     <div className='Search'>
-      <SearchComponent />
+      <NavBarM1 />
       <div>
         <ResultsPage />
       </div>

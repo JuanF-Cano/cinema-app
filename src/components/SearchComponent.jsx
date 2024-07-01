@@ -83,8 +83,8 @@ const SearchComponent = () => {
       {showDropdown && results.length > 0 && (
         <ul className="search-dropdown">
           {results.map(result => (
-            <li key={result.id} onClick={() => handleResultClick(result)}>
-              <img className="a"
+            <li className="item-search" key={result.id} onClick={() => handleResultClick(result)}>
+              <img className="image-dropdown"
                 src={`https://image.tmdb.org/t/p/w200${result.poster_path || result.profile_path}`}
                 alt={result.title || result.name}
               />                
