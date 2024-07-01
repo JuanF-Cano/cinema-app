@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"; 
 import Carousel from "../Home/Carousel"
 import { getPopularPeople } from "../../controllers/APIcalls";
+import '../ItemsInfo/ItemInfo.css';
 
 function SimilarPerson(movieId){
 
@@ -21,7 +22,7 @@ function SimilarPerson(movieId){
     }, [movieId]);
 
     return(
-        <div>
+        <div className="container-carousel">
         <Carousel movies={similarPerson} type={"person"}/>
         </div>
     )
