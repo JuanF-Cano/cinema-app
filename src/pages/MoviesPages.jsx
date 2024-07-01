@@ -3,6 +3,7 @@ import SearchBar from '../components/SearchBar/SearchBar';
 import CategoryBar from '../components/CategoryBar/CategoryBar';
 import MovieGrid from '../components/Home/MovieGrid'
 import searchAPI from "../components/SearchBarM1/apiManage";
+import SearchComponent from "../components/SearchComponent";
 
 export const Context = React.createContext()
 
@@ -30,7 +31,7 @@ function MoviesPage() {
   return (
     <div className='Search'>
       <Context.Provider value={[search,setSearch]}>
-        <SearchBar/>
+        <SearchComponent/>
       </Context.Provider>
       <Context.Provider value={[selectCategories, setSelectCategories]}>
         {/* {type == ("movies"||"tvShows")? <CategoryBar/> :undefined} */}

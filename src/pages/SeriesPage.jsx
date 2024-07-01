@@ -9,7 +9,7 @@ function SeriesPage() {
   const { type, id } = useParams();
   return (
     <div>
-      <NavBarM1></NavBarM1>
+      <SearchComponent/>
       <h1>Detalles</h1>
       <ItemInfo type={type} id={id}></ItemInfo>
       {console.log(id)}
