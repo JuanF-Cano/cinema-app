@@ -92,7 +92,6 @@ const Home = () => {
 
             <div className="home-principal-seccion__cards">
                 <div className="home-principal-seccion__titulo">Películas</div>
-                <MovieGrid movies={movies} />
             </div>
         </div>
     );
