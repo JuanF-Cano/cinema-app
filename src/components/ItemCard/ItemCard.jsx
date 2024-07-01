@@ -1,23 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ItemCard.css";
 
-function ItemCard({movie}) {
+function ItemCard({movie, type}) {
+  console.log(type)
   return (
-    <div
-      className="item-card"
-      onClick={() => {
-        window.location.href = `/movie/${movie.id}`;
-      }}
-    >
+      <Link to={`/details/${type}/${movie.id}`}
+      className="item-card">
       <img
         className="item-card-image"
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path?movie.poster_path:movie.profile_path}`}
         alt={movie.title}
       />
-      <div className="content-item-info">
+{/*       <div className="content-item-info"> Titulo de l
         <div className="item-title">{movie.title}</div>
-      </div>
-    </div>
+      </div> */}
+    </Link>
   );
 }
 

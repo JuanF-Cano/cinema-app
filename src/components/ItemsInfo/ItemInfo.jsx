@@ -8,6 +8,7 @@ import {
 
 function ItemInfo(props) {
   let type = props.type;
+  console.log (type)
   type = type.toLowerCase();
   console.log(type);
   const [infoDetails, setInfoDetails] = useState({});

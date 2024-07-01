@@ -2,16 +2,16 @@ import React, {useEffect, useState} from "react";
 import Carousel from "../Home/Carousel"
 import { getSimilarMovies } from "../../controllers/APIcalls";
 
-function Similar(movieId){
+function SimilarMovie(movieId){
 
     const [similarMovies,setSimilarMovies]=useState([])
     
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const moviesData = await getSimilarMovies(movieId);
+                const moviesData = await getSimilarMovies(movieId.movieId);
                 setSimilarMovies(moviesData); // Assuming API response has a 'results' array
-                {console.log("eyno"+moviesData)}
+                
             } catch (error) {
                 console.error("AY GONORREA", error);
             }
@@ -22,9 +22,9 @@ function Similar(movieId){
 
     return(
         <div>
-        <Carousel movies={similarMovies}/>
+        <Carousel movies={similarMovies} type={"movie"}/>
         </div>
     )
 
 }
-export default Similar
+export default SimilarMovie

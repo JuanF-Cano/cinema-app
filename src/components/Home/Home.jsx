@@ -83,11 +83,11 @@ const Home = () => {
             <div className="container-nav"><NavBarM1 /></div>
             <div className="home-principal-seccion__carrusel">
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={movies} />
+                <Carousel movies={movies} type="movie"/>
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={tvShows} />
+                <Carousel movies={tvShows} type="tv"/>
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={people} />
+                <Carousel movies={people} type="person"/>
             </div>
 
             <div className="home-principal-seccion__cards">
