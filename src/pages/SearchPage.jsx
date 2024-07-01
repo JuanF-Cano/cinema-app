@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SearchBar from '../components/SearchBar/SearchBar';
 import CategoryBar from '../components/CategoryBar/CategoryBar';
-import MovieGrid from '../components/Home/MovieGrid'
-
 
 export const Context = React.createContext()
-
+  
 function SearchPage() {
-
-
   const [search,setSearch]= React.useState("");
   const [selectCategories, setSelectCategories] = React.useState([])
 
@@ -18,11 +14,8 @@ function SearchPage() {
         <SearchBar/>
       </Context.Provider>
       <Context.Provider value={[selectCategories, setSelectCategories]}>
-        {/* {type == ("movies"||"tvShows")? <CategoryBar/> :undefined} */}
         <CategoryBar/>
       </Context.Provider>
-      <MovieGrid/>
-
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Context } from '../../pages/SearchPage'
 import './SearchBar.css'
 import { useParams, Link, useNavigate } from "react-router-dom"
@@ -45,17 +45,9 @@ function SearchBar() {
     setSearch(id);
     primary++;
   }
-
+  
   const handleSearch = () => {
     navigate(`/search/${type}/${search}`);
-    setSearch("");
-  };
-
-  const handleKeyPress = (evento) => {
-    if (evento.key === "Enter") {
-      handleSearch();
-      setSearch("");
-    }
   };
 
   useEffect(() => {
@@ -82,7 +74,6 @@ function SearchBar() {
         <SearchInput
           search={search}
           setSearch={setSearch}
-          handleKeyPress={handleKeyPress}
         />
         <button className="search-button" onClick={handleSearch}>
           Buscar
