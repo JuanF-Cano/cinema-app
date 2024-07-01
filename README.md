@@ -1,8 +1,5 @@
-# React + Vite
+# Cinema App
+This proyect consumes the The Movie DataBase API to recieve data about movies, tv-shows and people,
+it allows the user to filter by type of content, name and genre
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/JuanF-Cano/cinema--app/assets/145953041/85b6c868-4f57-444d-a080-bc15fac1a8fc)
