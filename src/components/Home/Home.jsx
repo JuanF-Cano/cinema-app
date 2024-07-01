@@ -55,11 +55,11 @@ const Home = () => {
             <div className="container-nav"><NavBarM1 /></div>
             <div className="home-principal-seccion__carrusel">
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={movies} />
+                <Carousel type={movies} />
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={tvShows} />
+                <Carousel type={tvShows} />
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={people} />
+                <Carousel type={people} />
             </div>
         </div>
     );
