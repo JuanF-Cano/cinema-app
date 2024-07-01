@@ -21,7 +21,7 @@ async function searchAPI(endpoint, params) {
         Authorization: `Bearer ${ACCES_TOKEN}`,
       },
       params: {
-        languaje: "es-ES",
+        languaje: "es-MX",
       },
     });
 
