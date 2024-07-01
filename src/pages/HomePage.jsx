@@ -1,9 +1,9 @@
-import HomePrincipalSeccion from '../components/Home/Home.jsx'
+import Home from '../components/Home/Home.jsx'
 
 function HomePage() {
     return(
         <div>
-            <HomePrincipalSeccion />
+            <Home />
         </div>
     )
 }
