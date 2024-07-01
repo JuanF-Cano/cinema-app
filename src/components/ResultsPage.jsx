@@ -8,6 +8,7 @@ const constant_genres = [{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},
 const API_KEY = 'fbd275a080fd3aac51146bb6a6946f33';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+
 const tmdbApi = axios.create({
   baseURL: BASE_URL,
   params: {
