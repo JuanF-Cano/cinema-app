@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { getPopularMovies } from "../../controllers/APIcalls";
+import { getPopularMovies, getPopularPeople, getPopularTVShows } from "../../controllers/APIcalls";
 import './Home.css';
 import Carousel from "./Carousel";
 import MovieGrid from "./MovieGrid";
 
 const Home = () => {
     const [movies, setMovies] = useState([]);
+    const [tvShows, setTvShows] = useState([]);
+    const [people, setPeople] = useState([]);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -20,15 +22,43 @@ const Home = () => {
         fetchMovies();
     }, []);
 
+    useEffect(() => {
+        const fetchTvShows = async () => {
+            try {
+                const tvShowsData = await getPopularTVShows();
+                setTvShows(tvShowsData); // Assuming API response has a 'results' array
+            } catch (error) {
+                console.error("Error fetching movies:", error);
+            }
+        };
+
+        fetchTvShows();
+    }, []);
+    
+
+    useEffect(() => {
+        const fetchPeople = async () => {
+            try {
+                const peopleData = await getPopularPeople();
+                setPeople(peopleData); // Assuming API response has a 'results' array
+            } catch (error) {
+                console.error("Error fetching movies:", error);
+            }
+        };
+
+        fetchPeople();
+    }, []);
+    
+
     return (
         <div className="home-principal-seccion">
             <div className="home-principal-seccion__carrusel">
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
                 <Carousel movies={movies} />
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={movies} />
+                <Carousel movies={tvShows} />
                 <div className="home-principal-seccion__titulo">Carrusel de películas</div>
-                <Carousel movies={movies} />
+                <Carousel movies={people} />
             </div>
 
             <div className="home-principal-seccion__cards">
