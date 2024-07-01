@@ -22,7 +22,6 @@
 .carrusel-container {   
     max-width: 95vw;
     overflow: auto;
-    scrollbar-width: none;
     display: flex;
     padding: 0px 80px;
 }
