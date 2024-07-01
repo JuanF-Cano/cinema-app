@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"; 
 import Carousel from "../Home/Carousel"
 import { getSimilarMovies } from "../../controllers/APIcalls";
+import '../ItemsInfo/ItemInfo.css';
 
 function SimilarMovie(movieId){
 
@@ -21,7 +22,7 @@ function SimilarMovie(movieId){
     }, [movieId]);
 
     return(
-        <div>
+        <div className="container-carousel">
         <Carousel movies={similarMovies} type={"movie"}/>
         </div>
     )

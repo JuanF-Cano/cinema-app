@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ItemInfo.css";
-import {
-  getMovieDetails,
-  getTVShowDetails,
-  getPersonDetails,
-} from "../../controllers/APIcalls";
+import { getMovieDetails, getTVShowDetails, getPersonDetails, } from "../../controllers/APIcalls";
 
 function ItemInfo(props) {
   let type = props.type;

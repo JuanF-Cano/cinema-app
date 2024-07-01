@@ -65,11 +65,11 @@ function SearchBar({ value }) {
       }
     };
     fetchResults();
-  },[value]);
+  },[search]);
 
   const handleResultClick = () => {
     setResults([]);
-  }, [search];
+  };
 
   const MainFilter = ( movies, categoties ) => {
     movies.id.map((movie) => {

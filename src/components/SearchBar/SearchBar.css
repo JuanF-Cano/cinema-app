@@ -4,6 +4,23 @@
     justify-content: space-around;
 }
 
+.select-button {
+  width: 20%;
+  border-radius: 2px;
+  background-color: rgb(203, 125, 0);
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  appearance: none;
+  position: relative;
+}
+
+.select-option {
+  background-color: rgb(140, 91, 11);
+  font-weight: bold;
+  font-size: small;
+}
+
 .search-input {
   padding: 0.5rem 1rem;
   border: 1px solid #d1d5db;

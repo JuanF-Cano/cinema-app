@@ -25,17 +25,19 @@
 }
 
 /* Estilos para el carrusel */
-.carrusel-container {
-    max-width: 1200px;
+.carrusel-container {   
+    max-width: 95vw;
     overflow: auto;
-    scrollbar-width: none;
+    scrollbar-width: thin;
     display: flex;
+    padding: 0px 80px;
 }
 
 .carrusel {
     display: flex;
     gap: 16px;
     padding-bottom: 16px;
+    justify-content: center;
 }
 
 .carrusel-item {
