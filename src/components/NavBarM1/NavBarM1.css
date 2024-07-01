@@ -1,9 +1,15 @@
 nav {
     display: flex;
     padding: 20px 12px;
+    align-items: center;
 }
 
 .nav-bar-links {
-    margin: 0px 30px;
+    margin: 0px 60px;
+    text-align: center;
+    align-items: center;
 }
 
+.link-nav {
+    border-radius: 4px;
+}
