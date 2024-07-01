@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { getPopularMovies } from "../../controllers/APIcalls";
+import { getPopularMovies, getPopularTVShows, getPopularPeople } from "../../controllers/APIcalls";
 import './Home.css';
 import Carousel from "./Carousel";
-import MovieGrid from "./MovieGrid";
 import NavBarM1 from "../NavBarM1/NavBarM1";
 
 const Home = () => {

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'; // Importación de useContext, useEffect y useState desde React para manejar el estado y el contexto
-import { Context } from '../../App'; // Importación del contexto desde la aplicación principal
+import { Context } from '../../pages/SearchPage'; // Importación del contexto desde la aplicación principal
 import './CategoryBar.css'; // Estilos CSS para el componente CategoryBar
 import { getMovieGenres } from '../../controllers/APIcalls'; // Función para obtener géneros de películas desde API
 

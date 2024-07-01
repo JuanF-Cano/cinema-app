@@ -4,11 +4,8 @@ import ItemInfoPage from "./pages/ItemInfoPage";
 import SearchPage from "./pages/SearchPage";
 import HomePage from "./pages/HomePage";
 
-export const Context = React.createContext()
+
 function App() {
-  const [search,setSearch]= useState("");
-const [selectCategories, setSelectCategories] = useState([])
-  
   return (
     <Router>
       <Routes>

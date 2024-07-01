@@ -8,6 +8,9 @@ function NavBarM1() {
     <nav>
       <div className='nav-bar-links'>
         <Link to="/">Home</Link>
+        <Link to="/movies">Movies</Link>
+        <Link to="/tv-shows">TV Shows</Link>
+        <Link to="/people">People</Link>
       </div>
       <SearchBarM1></SearchBarM1>
     </nav>

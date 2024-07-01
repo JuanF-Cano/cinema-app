@@ -1,12 +1,9 @@
 import React, { useContext } from "react"
-import { useState } from "react";
-import { Context } from '../../App'
+import { Context } from '../../pages/SearchPage'
 import './SearchBar.css'
 
-  const SearchBar =()=>{
-
-  const [search,setSearch]= useContext(Context);
-
+const SearchBar =()=>{
+  const [ search, setSearch ]= useContext(Context);
   const handleChange=e=>{//esto utiliza el useState de setSearch para recibir input del usuario, search contiene el string del input del usuario
     setSearch (e.target.value)
     
@@ -22,4 +19,5 @@ import './SearchBar.css'
       </div>
     )
 }
-export default SearchBar
+
+export default SearchBar;
