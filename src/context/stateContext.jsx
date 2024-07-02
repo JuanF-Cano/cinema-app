@@ -11,8 +11,8 @@ export const useGlobalState = () => {
   export const StateContext = ({ children }) => {
 
     const [searchType, setSearchType] = useState("movie");
-    const  [query, setQuery] = useState("");
-    const  [id, setId] = useState("");
+    const [query, setQuery] = useState("");
+    const [id, setId] = useState("");
 
 
     return (

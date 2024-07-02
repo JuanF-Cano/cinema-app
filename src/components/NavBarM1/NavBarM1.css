@@ -16,3 +16,9 @@ nav {
 .link-nav {
     border-radius: 4px;
 }
+
+@media screen and (max-width: 460px) {
+    .nav-bar-links {
+        margin: 0px;
+    }
+}

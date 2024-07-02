@@ -13,7 +13,6 @@ function PeoplePage() {
       <div className="container-principal-section" >
         <h1>Detalles</h1>
         <ItemInfo type={type} id={id}></ItemInfo>
-        {console.log(id)}
         <SimilarPerson movieId={id}/>
       </div>
     </div>

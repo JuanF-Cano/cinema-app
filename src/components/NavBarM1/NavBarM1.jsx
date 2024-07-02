@@ -1,6 +1,6 @@
 import react from "react";
 import { Link } from "react-router-dom";
-import SearchComponent from "../SearchComponent";
+import SearchComponent from "./SearchComponent";
 import './NavBarM1.css';
 
 function NavBarM1() {

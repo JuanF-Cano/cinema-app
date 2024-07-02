@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"; 
 import Carousel from "../Home/Carousel"
-import { getSimilarTVShows } from "../../controllers/APIcalls";
+import { getSimilarTVShows } from "../../config/APIcalls";
 import '../ItemsInfo/ItemInfo.css';
 
 function SimilarSerie(movieId){

@@ -12,7 +12,6 @@ function SeriesPage() {
       <NavBarM1></NavBarM1>
       <h1>Detalles</h1>
       <ItemInfo type={type} id={id}></ItemInfo>
-      {console.log(id)}
       <SimilarSerie movieId={id}/>
     </div>
   );
