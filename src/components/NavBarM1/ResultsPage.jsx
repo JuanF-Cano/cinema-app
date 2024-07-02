@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useStateContext } from '../context/stateContext';
+import { useStateContext } from '../../context/stateContext';
 import axios from 'axios';
-import "./SearchBar/SearchBar.css";
+import "./SearchBar.css";
 
 const constant_genres = [{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]
 
@@ -26,6 +26,7 @@ function ResultsPage() {
     const [genre, setGenre] = useState("");
 
     const { searchType, query, setId } = useStateContext();
+
     useEffect(() => {
       const genresParams = getGenres();
       // Fetch movies based on the user's search query
@@ -53,8 +54,6 @@ function ResultsPage() {
             setData(response.data.results);
           }
 
-
-
           // Si genresParams es una cadena, no se puede expandir como un objeto.
           // Necesitas ajustar cómo se añade a los parámetros.
           /* const response = await tmdbApi.get(`/${way}/${searchType}`, {
@@ -76,7 +75,7 @@ function ResultsPage() {
       if (query) { // Solo ejecutamos la búsqueda si hay un query definido
         fetchData();
       }
-    }, [index, page, searchType, query, genre]); // Asegúrate de que 'genre' se actualice correctamente en getGenres
+    }, [index, page, searchType, query, genre]);
   // useEffect(() => {
   //   if(genre=)
   //     setGenre(search); // Assuming 'search' contains the ID value
@@ -84,12 +83,12 @@ function ResultsPage() {
 
   function getGenres() {
     if(genre.length > 0){
-      return `&with_genres=${genre}` // &with_genres=1,2
+      return `&with_genres=${genre}` 
     }else{
       return ''
     }
   }
-  // Funcion para mostrar los 10 resultados siguientes
+  
   const nextPage = () => {
     if (index === 0) {
       setIndex(index + 12);
@@ -122,19 +121,50 @@ function ResultsPage() {
         setGenre(genre + e.target.value + ',');
     };
 
-
     const newData = data.slice(index, index + 12);
+
+    const containsAnyNumber = (string, array) => {
+      if (string.trim() === "") {
+        return true;
+      }
+
+      const numbers = string.split(',').map(Number);
+
+      return numbers.some(number => array.includes(number));
+    };
+
     return (
-        <div className="contmax">
-            <div className='contenedor-pelis'>
-            <h1>Relacionados</h1>
-                {genre.split(',').map((element) => {
-                    if (element === '') return;
-                })}
-            </div>
+      <div className="contmax">
+      {/* Selection para seleccionar el genero */}
+      Seleccione el genero:
+      <div className='Selector'>
+        {constant_genres.map((element) => (
+          <label className='selector-label' key={element.id}>
+            <input 
+              type="checkbox" 
+              value={element.id} 
+              onClick={handleSelect} 
+            />
+            {element.name}
+          </label>
+        ))}
+      </div>
+      <span>Generos seleccionados: </span>
+      {/* // imprimir genero seleccionado, no por numero si no por nombre */}
+      <div className='contenedor-pelis'>
+      <h1>Relacionados</h1>
+          {genre.split(',').map((element) => {
+              if (element === '') return;
+              return (
+                  <p key={element}>
+                      {constant_genres.find((genre) => genre.id === parseInt(element)).name}
+                  </p>
+              );
+          })}
+        </div>
         <div className="Container">
             <div className="Movies">
-                {newData.map((element) => (
+                {newData.filter((data) => containsAnyNumber(genre, data.genre_ids) ).map((element) => (
                     <div className="Movie" key={element.id}>
                         <img className="movie-images"
                             src={`https://image.tmdb.org/t/p/w300${element.poster_path}` + `https://image.tmdb.org/t/p/w300${element.profile_path}` }
@@ -153,7 +183,7 @@ function ResultsPage() {
           <button className="controll-page-button" onClick={previousPage}>Prev</button>   
           <button className="controll-page-button" onClick={nextPage}>Next</button>
         </div>
-        </div>
+      </div>
 
     );
 }

@@ -13,7 +13,6 @@ function MoviePage() {
       <NavBarM1 />
       <h1>Detalles</h1>
       <ItemInfo type={type} id={id}></ItemInfo>
-      {console.log(id)}
       <SimilarMovie movieId={id}/>
     </div>
   );

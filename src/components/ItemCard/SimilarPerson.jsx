@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"; 
 import Carousel from "../Home/Carousel"
-import { getPopularPeople } from "../../controllers/APIcalls";
+import { getPopularPeople } from "../../config/APIcalls";
 import '../ItemsInfo/ItemInfo.css';
 
 function SimilarPerson(movieId){

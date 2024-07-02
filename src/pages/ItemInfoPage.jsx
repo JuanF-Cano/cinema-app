@@ -13,7 +13,6 @@ if (type=="movie"){
     <MoviePage/>
   );
 }else if(type=="person"){
-  {console.log(id)}
   return(
     <PeoplePage />
   )

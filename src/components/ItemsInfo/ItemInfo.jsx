@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./ItemInfo.css";
-import { getMovieDetails, getTVShowDetails, getPersonDetails, } from "../../controllers/APIcalls";
+import { getMovieDetails, getTVShowDetails, getPersonDetails, } from "../../config/APIcalls";
 
 function ItemInfo(props) {
   let type = props.type;
-  console.log (type)
   type = type.toLowerCase();
-  console.log(type);
   const [infoDetails, setInfoDetails] = useState({});
 
   useEffect(() => {
@@ -14,7 +12,6 @@ function ItemInfo(props) {
       let response;
       if (type == "movie") {
         response = await getMovieDetails(props.id);
-        console.log(response);
         let imgPATH = response.poster_path;
         let imgURL = `https://image.tmdb.org/t/p/w500/${imgPATH}`;
         setInfoDetails({
@@ -49,7 +46,6 @@ function ItemInfo(props) {
           biography: response.biography,
           birthaday: response.birthday,
         });
-        console.log(infoDetails.name);
       }
     }
     fetchData();
@@ -59,7 +55,7 @@ function ItemInfo(props) {
     <div className="view-details-container">
       <div className="view-details">
         {infoDetails.img && (
-          <img src={infoDetails.img} alt={infoDetails.title} />
+          <img className="image-details" src={infoDetails.img} alt={infoDetails.title} />
         )}
         <div className="details">
           <h2>{type == "person" ? infoDetails.name : infoDetails.title}</h2>

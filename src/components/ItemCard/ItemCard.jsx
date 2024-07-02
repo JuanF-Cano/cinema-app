@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./ItemCard.css";
 
 function ItemCard({movie, type}) {
-  console.log(type)
   return (
       <Link to={`/${type}/${movie.id}`}
       className="item-card">

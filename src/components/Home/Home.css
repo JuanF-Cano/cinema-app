@@ -6,6 +6,7 @@
 
 .home-principal-seccion {
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
@@ -21,12 +22,14 @@
 }
 
 .home-principal-seccion__carrusel {
+    width: 100%;
     margin-bottom: 40px;
+    padding: 0px 50px;
 }
 
 /* Estilos para el carrusel */
 .carrusel-container {   
-    max-width: 95vw;
+    max-width: 95%;
     overflow: auto;
     scrollbar-width: thin;
     display: flex;

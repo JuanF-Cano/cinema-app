@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPopularMovies, getPopularPeople, getPopularTVShows } from "../../controllers/APIcalls";
+import { getPopularMovies, getPopularPeople, getPopularTVShows } from "../../config/APIcalls";
 import './Home.css';
 import Carousel from "./Carousel";
 import NavBarM1 from "../NavBarM1/NavBarM1";
